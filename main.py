@@ -18,7 +18,7 @@ def news_sentiment():
         r = requests.get(url)
         data = r.json()
         if "Information" in data or "Note" in data:
-            return f"API LIMIT REACHED: {data.get('Information') or data.get('Note')}"
+            return None
         feed = data.get("feed", [])
         report = []
         for articles in feed:
@@ -37,6 +37,8 @@ llm=ChatOllama(model="llama3",temperature=.1)
 
 def gen_report():
     news_data=news_sentiment()
+    if news_data is None:
+        return "Error fetching news data. Please try again later."
     model=ChatOllama(model="llama3",temperature=.1 )
     prompt= f"""You are a professional market analyst. Here are the latest 25 headlines:
     
@@ -47,10 +49,10 @@ def gen_report():
     2. Identify the 3 biggest trends currently driving these markets.
     3. Based on these specific 25 articles, what is the overall market mood?
     
-    IMPORTANT: Do not summarize or skip headlines. List them all.
+    IMPORTANT: Do not summarize or skip headlines. List them all.just write the content dont list them as task1,2or3
     """ 
     response=model.invoke(prompt)
-    print(response.content)
+    return response.content
 
 
 gen_report ()
