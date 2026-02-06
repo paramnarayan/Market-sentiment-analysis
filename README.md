@@ -7,15 +7,15 @@ Features
 - Zero Hallucination:Uses a strictly grounded RAG prompt to ensure the AI only reports on actual news provided.
 # Tech Stack
 - Language:Python 
-- LLM Framework:LangChain / LangChain-Ollama
-- Model: Meta Llama 3 (running via Ollama)
+- LLM Framework:LangChain / LangChain-Groq
+- Model: llama-3.3-70b-versatile
 - Data Source: Alpha Vantage API
 # Setup
 Install dependencies
-- pip install langchain langchain-ollama
+- pip install langchain langchain-groq
 - Configure Environment Variables
-- Create a .env file in the root directory and add your Alpha Vantage API Key:
-- API_key=YOUR_ACTUAL_API_KEY_HERE
+- Create a .env file in the root directory and add your Alpha Vantage API Key & Groq API Key:
+
 
 # Future Roadmap: Scaling with TensorFlow
 The next phase of this project involves:
