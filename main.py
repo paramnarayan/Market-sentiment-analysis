@@ -1,5 +1,6 @@
 
-from langchain_ollama import ChatOllama
+
+from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 import requests
 import os
@@ -7,7 +8,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 API_key = os.getenv("API_key")
-
+GROQ_API = os.getenv("GROQ")
 
 def news_sentiment():
     """
@@ -33,13 +34,13 @@ def news_sentiment():
 
 
 
-llm=ChatOllama(model="llama3",temperature=.1)
+llm=ChatGroq(model="llama-3.3-70b-versatile",temperature=.1)
 
 def gen_report():
     news_data=news_sentiment()
     if news_data is None:
         return "Error fetching news data. Please try again later."
-    model=ChatOllama(model="llama3",temperature=.1 )
+    model=ChatGroq(model="llama-3.3-70b-versatile",temperature=.1 )
     prompt= f"""You are a professional market analyst. Here are the latest 25 headlines:
     
     {news_data}
