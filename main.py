@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 API_key = os.getenv("API_key")
-GROQ_API_KEY = os.getenv("GrOQ_API_KEY")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 def news_sentiment():
     """
     to fetch the latest news sentiment and headlines 
