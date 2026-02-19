@@ -1,5 +1,5 @@
 # Market-sentiment-analysis
-A Real-Time Retrieval-Augmented Generation (RAG) tool that fetches the latest financial news and uses Llama 3 (via Ollama) to generate deep-dive market sentiment reports.
+A Real-Time Retrieval-Augmented Generation (RAG) tool that fetches the latest financial news and uses Llama 3 to generate deep-dive market sentiment reports.
 Features
 - Real-Time Data: Pulls the top 25 headlines from Alpha Vantage's Market News & Sentiment API.
 - Topic-Based Analysis: Filters news across Technology, IPOs, Blockchain, and Finance.
